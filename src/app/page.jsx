@@ -2,28 +2,30 @@
 import { useState } from "react";
 import { ShoppingCart, UserCircle, CreditCard, Package, Star, Heart, Tag, Search } from "lucide-react";
 import { motion } from "framer-motion";
-import SearchBar from "./components/SearchBar";
-import ProductGrid from "./components/ProductGrid";
+// import SearchBar from "./components/SearchBar";
+import { useCart } from "@/context/CartContext";
 import Link from "next/link";
+import products from "@/data/products";
 
 export default function Home() {
-  const allProducts = [
-    { id: 1, name: "Running Shoes", price: 99, category: "Clothing", img: "/shoes.png" },
-    { id: 2, name: "Wireless Headphones", price: 199, category: "Electronics", img: "/headphones.png" },
-    { id: 3, name: "Backpack", price: 129, category: "Clothing", img: "/backpack.png" },
-    { id: 4, name: "Smartwatch", price: 249, category: "Electronics", img: "/watch.png" },
-    { id: 5, name: "Sunglasses", price: 149, category: "Clothing", img: "/sunglasses.png" },
-    { id: 6, name: "Digital Camera", price: 499, category: "Electronics", img: "/camera.png" },
-    { id: 7, name: "T-shirt", price: 29, category: "Clothing", img: "/tshirt.png" },
-    { id: 8, name: "Smartphone", price: 699, category: "Electronics", img: "/phone.png", rating: 4, description: "Lorem ipsum dolor amet, consectetur euisagend." },
-    { id: 9, name: "Clay Pot", price: 59, category: "Home", img: "/pot.png" },
-  ];
+
+  const allProducts = products;
+  // const allProducts = [
+  //   { id: 1, name: "Running Shoes", price: 99, category: "Clothing", img: "/shoes.png" },
+  //   { id: 2, name: "Wireless Headphones", price: 199, category: "Electronics", img: "/headphones.png" },
+  //   { id: 3, name: "Backpack", price: 129, category: "Clothing", img: "/backpack.png" },
+  //   { id: 4, name: "Smartwatch", price: 249, category: "Electronics", img: "/watch.png" },
+  //   { id: 5, name: "Sunglasses", price: 149, category: "Clothing", img: "/sunglasses.png" },
+  //   { id: 6, name: "Digital Camera", price: 499, category: "Electronics", img: "/camera.png" },
+  //   { id: 7, name: "T-shirt", price: 29, category: "Clothing", img: "/tshirt.png" },
+  //   { id: 8, name: "Smartphone", price: 699, category: "Electronics", img: "/phone.png", rating: 4, description: "Lorem ipsum dolor amet, consectetur euisagend." },
+  //   { id: 9, name: "Clay Pot", price: 59, category: "Home", img: "/pot.png" },
+  // ];
 
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [search, setSearch] = useState("");
   const [priceRange, setPriceRange] = useState([0, 1000]);
-  // const { cart, setCart } = useCart(); // Uncomment when CartContext is wrapped
-
+const { addToCart, cart, removeFromCart, clearCart } = useCart();
   // Get unique categories from products
   const categories = Array.from(new Set(allProducts.map(p => p.category)));
 
@@ -50,9 +52,16 @@ export default function Home() {
           />
 
           {/* Search bar */}
-          <div className="flex-1 bg-amber-50 rounded-3xl mx-6">
-            <SearchBar search={search} setSearch={setSearch} />
-          </div>
+          <div className="relative mx-7 w-full">
+      <input
+        type="text"
+        placeholder="Search for products..."
+        className="w-full rounded-2xl px-5 py-2 bg-amber-50 text-black focus:outline-none"
+        value={search}
+        onChange={e => setSearch(e.target.value)}
+      />
+      <Search className="absolute right-3 top-2.5 text-gray-500" size={20} />
+    </div>
 
           <div className="flex items-center space-x-6">
             <div className="relative cursor-pointer">
@@ -146,7 +155,8 @@ export default function Home() {
                       View Details
                     </button>
                   </Link>
-                  <button 
+                  <button   onClick={() => addToCart(product)}
+
                     className="flex items-center justify-center gap-1 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-3 py-1 rounded-md text-sm font-medium hover:from-purple-700 hover:to-indigo-700 transition w-full disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={typeof product.inStock === 'boolean' ? !product.inStock : false}
                   >
