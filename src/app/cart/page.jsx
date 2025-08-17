@@ -107,7 +107,7 @@ export default function CartPage() {
             </div>
             <div className="flex justify-between mb-2">
               <span>Total Price:</span>
-              <span>₹{totalPrice}</span>
+              <span>${totalPrice}</span>
             </div>
             <button
               onClick={clearCart}

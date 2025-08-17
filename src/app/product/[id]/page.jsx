@@ -4,6 +4,9 @@ import { useParams } from "next/navigation";
 // import { IconHeart, IconHeartFilled, IconStarFilled } from "@tabler/icons-react";
 import toast from "react-hot-toast";
 import StarRatings from "react-star-ratings";
+import CartContext from '@/context/CartContext';
+
+
 
 // Example products (static for now)
 const products = [
