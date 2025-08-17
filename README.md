@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+🛍️ My E-Commerce
 
-## Getting Started
+An elegant and responsive E-Commerce web application built with Next.js, Tailwind CSS, and Framer Motion.
+The project implements product listings, filtering, search, cart functionality, and product details — all optimized for desktop, tablet, and mobile.
 
-First, run the development server:
+🌐 Live Demo: my-ecommerce-rouge-one.vercel.app
 
-```bash
+✨ Features
+
+Home Page (Product Listing)
+Category, price range, and brand filters
+Search bar with live filtering
+Responsive product grid (3 / 2 / 1 columns based on screen size)
+Quick "Add to Cart" functionality
+Product Detail Page
+Dynamic routing: /product/[id]
+Large product image / carousel
+
+Product details: title, price, description, category
+Quantity selector + Add to Cart button
+
+Optional reviews section
+
+Cart Page
+List of added products
+Quantity update controls
+Remove items from cart
+Price summary
+
+Other Functionalities
+
+Client-side state management (React Context / Zustand / Redux)
+Smooth animations with Framer Motion
+
+🛠 Tech Stack
+
+Frontend Framework: Next.js 15
+Styling: Tailwind CSS
+Animations: Framer Motion
+Icons: React Icons, Lucide React
+Toasts: React Hot Toast
+Ratings: React Star Ratings
+
+⚙️ Installation
+
+Clone the repository:
+
+git clone https://github.com/Vaishnavi-670/my-ecommerce.git
+cd my-ecommerce
+Install dependencies:
+npm install
+
+Run the development server:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 to view it in your browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🚀 Usage
+Browse products from the home page.
+Apply filters (category, price, brand) and search.
+Click on a product to view details.
+Add items to the cart (persisted in localStorage).
+View the cart page and manage quantities or remove items.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+🖼 Pages & Layout
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Home Page / – Product listing with filters, search, and responsive grid.
+Product Detail Page /product/[id] – Detailed product info with dynamic routing.
+Cart Page /cart – Added items, price summary, and quantity management.
 
-## Learn More
+⚡ Configuration
+If you plan to extend the project:
+Update product data source (static JSON, API, or database).
+Configure environment variables in .env.local (if using external APIs).
+Adjust Tailwind config for custom themes or colors.
 
-To learn more about Next.js, take a look at the following resources:
+Contributors
+Vaishnavi – Developer & Designer
+👩‍💻 Contributors
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Vaishnavi – Developer & Designer
